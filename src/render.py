@@ -21,24 +21,24 @@ def gif(
     simulation: Iterator[int],
     tpf: int = 50,
     loop: bool = True,
-    **kwargs
+    **kwargs,
 ):
     imgs = []
     width, height = dimensions
     for state in simulation:
-        img = Image.new('RGB', dimensions, (255, 255, 255))
+        img = Image.new("RGB", dimensions, (255, 255, 255))
         data = img.load()
         for x, y in iter_product(range(width), range(height)):
             if state >> y * width + x & 1:
-                data[x,y] = (0, 0, 0)
+                data[x, y] = (0, 0, 0)
         imgs.append(img.resize((scaling * width, scaling * height), Image.NEAREST))
     imgs[0].save(
         path,
-        format='GIF',
+        format="GIF",
         save_all=True,
         append_images=imgs[1:],
         duration=tpf,
-        loop=int(not loop)
+        loop=int(not loop),
     )
 
 
@@ -51,16 +51,18 @@ def png(
     scaling: int,
     path: str,
     simulation: Iterator[int],
-    **kwargs
+    **kwargs,
 ):
-    width, = dimensions
-    img = Image.new('RGB', (width, iterations+1), (255, 255, 255))
+    (width,) = dimensions
+    img = Image.new("RGB", (width, iterations + 1), (255, 255, 255))
     data = img.load()
     for y, state in enumerate(simulation):
         for x in range(width):
             if state >> x & 1:
-                data[x,y] = (0, 0, 0)
-    img.resize((scaling * width, scaling * (iterations + 1)), Image.NEAREST).save(path, format='PNG')
+                data[x, y] = (0, 0, 0)
+    img.resize((scaling * width, scaling * (iterations + 1)), Image.NEAREST).save(
+        path, format="PNG"
+    )
 
 
 FORMATS["png"] = png
@@ -72,7 +74,9 @@ DIM_TO_FORMAT = [None, png, gif]
 def state_to_array(dimensions: Tuple[int, ...], state: int):
     arr = np.ndarray(dimensions, np.bool)
     for coords in iter_product(*map(range, dimensions)):
-        arr[(*coords,)] = bool(state >> sum(c * product(*dimensions[:j]) for j, c in enumerate(coords)) & 1)
+        arr[(*coords,)] = bool(
+            state >> sum(c * product(*dimensions[:j]) for j, c in enumerate(coords)) & 1
+        )
     return arr
 
 
@@ -82,7 +86,7 @@ def npy(
     scaling: int,
     path: str,
     simulation: Iterator[int],
-    **kwargs
+    **kwargs,
 ):
     data = np.ndarray((iterations + 1, *dimensions), np.bool)
     for i, state in enumerate(simulation):
@@ -100,7 +104,7 @@ def txt(
     scaling: int,
     path: str,
     simulation: Iterator[int],
-    **kwargs
+    **kwargs,
 ):
     state_format = f"{{state:0>{product(*dimensions)}b}}\n"
     with open(path, "w+") as f:
