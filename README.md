@@ -1,7 +1,5 @@
 # PyCells
 
-![conway](./images/long_conway.gif)
-
 Whilst being very bored recently I started playing around with simulating cellular automata once again.
 But to challenge myself a bit more than usual I set three specific limitations that made this a bit harder
 than I was used to:
@@ -72,3 +70,13 @@ python simulate.py -p conway -d 64x64 -i 32
 Though this implementation can handle n-dimensional states as of now I have only implemented
 graphical visualizations for 1D and 2D automata. If you want to create your own visualization
 you can specify one of the text based formats (e.g. `txt`, `npy`).
+
+## Examples
+
+_1D pattern rule 772 radius=2_<br>
+![772](./images/772.png)
+
+_Conway's Game of Life (2D count rule 6152 radius=1)_<br>
+![conway](./images/long_conway.gif)
+
+
