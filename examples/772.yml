@@ -1,0 +1,5 @@
+method: pattern
+rule: 772
+dimensions: "128"
+iterations: 127
+neighborhood_radius: 2

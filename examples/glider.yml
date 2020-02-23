@@ -1,0 +1,15 @@
+preset: "conway"
+out: "glider"
+dimensions: "8x8"
+iterations: 32
+tpf: 75
+format: "gif"
+initial_state: !rb
+  00000000
+  00000000
+  00001000
+  00000100
+  00011100
+  00000000
+  00000000
+  00000000

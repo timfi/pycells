@@ -1,0 +1,7 @@
+method: "count"
+rule: 252360
+dimensions: "128x128"
+iterations: 128
+parallelize: True
+scaling: 4
+tpf: 50
