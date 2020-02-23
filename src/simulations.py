@@ -113,14 +113,13 @@ def _count_worker(dimensions, slice_sizes, b, s, neighborhood_radius, state, i):
                 (i // slice_sizes[j] + offset) % dimensions[j] * slice_sizes[j]
                 for j, offset in enumerate(offsets)
             )
-            & 1
+            & any(offset != 0 for offset in offsets)
             for offsets in iter_product(
                 *(
                     range(-neighborhood_radius, neighborhood_radius + 1)
                     for _ in dimensions
                 )
             )
-            if any(offset != 0 for offset in offsets)
         )
         & 1
     ) << i
@@ -193,25 +192,21 @@ def pattern(
 def _pattern_worker(dimensions, slice_sizes, patterns, neighborhood_radius, state, i):
     return (
         patterns[
-            (
-                sum(
-                    (
-                        state
-                        >> sum(
-                            (i // slice_sizes[k] + offset)
-                            % dimensions[k]
-                            * slice_sizes[k]
-                            for k, offset in enumerate(offsets)
-                        )
-                        & 1
+            sum(
+                (
+                    state
+                    >> sum(
+                        (i // slice_sizes[k] + offset) % dimensions[k] * slice_sizes[k]
+                        for k, offset in enumerate(offsets)
                     )
-                    << j
-                    for j, offsets in enumerate(
-                        iter_product(
-                            *(
-                                range(-neighborhood_radius, neighborhood_radius + 1)
-                                for _ in dimensions
-                            )
+                    & 1
+                )
+                << j
+                for j, offsets in enumerate(
+                    iter_product(
+                        *(
+                            range(-neighborhood_radius, neighborhood_radius + 1)
+                            for _ in dimensions
                         )
                     )
                 )
