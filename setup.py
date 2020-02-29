@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pycells",
-    version="v0.1.2",
+    version="v0.1.4",
     author="Tim Fischer",
     author_email="t.fischer98@hotmail.com",
     description="A small package for simulating simple cellular automata.",
@@ -20,4 +20,10 @@ setuptools.setup(
     ],
     entry_points={'console_scripts': ['pycells = pycells.cli:cli']},
     python_requires='>=3.7',
+    install_requires=[
+        "Click==7.0",
+        "numpy==1.18.1",
+        "Pillow==7.0.0",
+        "PyYAML==5.3",
+    ]
 )
