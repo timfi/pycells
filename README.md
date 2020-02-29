@@ -14,7 +14,15 @@ Another additional burden I put on to myself was to implement multiple unique st
 
 
 ## Usage
-Create a virtualenv using `./requirements.txt` and simply run `python simulate.py` in it.
+
+### From PyPi
+1. run `pip install pycells`
+2. run `pycells` and check what options you have
+
+### From source
+1. clone this repo
+2. setup virtualenv using python `> 3.7` and `./requirements.txt`
+3. run `python simulate.py`
 
 
 I implemented both a cli and a file-based simulation configuration system. The cli is structured
