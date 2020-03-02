@@ -1,4 +1,4 @@
-from src.cli import cli
+from pycells.cli import cli
 
 if __name__ == "__main__":
     cli()
