@@ -41,7 +41,7 @@ def product(*scalars: int) -> int:
     return reduce(lambda acc, scalar: acc * scalar, scalars, 1)
 
 
-Simulation = Callable[[Tuple[int, ...], int, int, int, int, bool], Iterator[int]]
+Simulation = Callable[[Tuple[int, ...], int, int, int, int, bool, bool], Iterator[int]]
 SetupFunc = Callable[[Tuple[int, ...], int, int], Tuple]
 WorkerFunc = Callable[[Tuple[int, ...], List[int], Tuple, int, int], int]
 
@@ -80,7 +80,8 @@ def make_simulation(
         neighborhood_radius: int = 1,
         initial_state: int = -1,
         iterations: int = -1,
-        parallel: bool = False
+        parallel: bool = False,
+        skip_initial_state: bool = False,
     ):
         worker_args = setup_func(dimensions, rule, neighborhood_radius)
 
@@ -92,7 +93,8 @@ def make_simulation(
             initial_state = randrange(max_state)
 
         iteration, state = 0, initial_state
-        yield state
+        if not skip_initial_state:
+            yield state
 
         n_workers = max(1, cpu_count() - 1) if parallel else 1
         worker = partial(worker_func, dimensions, slice_sizes, neighborhood_radius, *worker_args)

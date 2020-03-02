@@ -28,6 +28,7 @@ DEFAULTS = {
     "scaling": 4,
     "out": "out",
     "parallelize": False,
+    "skip_initial_state": False,
 }
 
 
@@ -121,6 +122,12 @@ class CustomCommand(click.Command):
     default=None,
     help="enabled parallel calculation of cells per state transition",
 )
+@click.option(
+    "--skip-initial-state",
+    is_flag=True,
+    default=None,
+    help="skip the initial state",
+)
 @click.option("--scaling", type=int, help="scaling to apply to output")
 @click.option(
     "--format",
@@ -135,6 +142,7 @@ def cli(
     neighborhood_radius,
     initial_state,
     parallelize,
+    skip_initial_state,
     scaling,
     out,
     format=None,
@@ -178,11 +186,13 @@ def cli(
             initial_state=initial_state,
             iterations=iterations,
             parallel=parallelize,
+            skip_initial_state=skip_initial_state,
         ),
         label="Simulating...",
         show_pos=True,
-        length=iterations + 1,
+        length=iterations + (not skip_initial_state),
     ) as bar:
+        click.echo("Parsing rule...")
         draw_method(
             iterations,
             dimensions,

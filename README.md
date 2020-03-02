@@ -84,6 +84,9 @@ you can specify one of the text based formats (e.g. `txt`, `npy`).
 _1D pattern rule 772 radius=2_<br>
 ![772](https://raw.githubusercontent.com/tim-fi/pycells/master/images/772.png)
 
+_2D pattern rule 12345678 radius=1_<br>
+![12345678](https://raw.githubusercontent.com/tim-fi/pycells/master/images/12345678.png)
+
 _Conway's Game of Life (2D count rule 6152 radius=1)_<br>
 ![conway](https://raw.githubusercontent.com/tim-fi/pycells/master/images/long_conway.gif)
 
