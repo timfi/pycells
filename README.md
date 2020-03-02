@@ -1,4 +1,4 @@
-# PyCells
+# ![glider](https://media.githubusercontent.com/media/tim-fi/pycells/master/images/glider.gif) pyCells
 
 Whilst being very bored recently I started playing around with simulating cellular automata once again.
 But to challenge myself a bit more than usual I set three specific limitations that made this a bit harder
@@ -81,14 +81,4 @@ graphical visualizations for 1D and 2D automata. If you want to create your own 
 you can specify one of the text based formats (e.g. `txt`, `npy`).
 
 ## Examples
-
-_1D pattern rule 772 radius=2_<br>
-![772](https://media.githubusercontent.com/media/tim-fi/pycells/master/images/772.png)
-
-_2D pattern rule 12345678 radius=1_<br>
-![12345678](https://media.githubusercontent.com/media/tim-fi/pycells/master/images/12345678.gif)
-
-_Conway's Game of Life (2D count rule 6152 radius=1)_<br>
-![conway](https://media.githubusercontent.com/media/tim-fi/pycells/master/images/long_conway.gif)
-
-
+For some more examples have a look at rendered outputs [here](https://github.com/tim-fi/pycells/tree/master/images).
