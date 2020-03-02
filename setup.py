@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pycells",
-    version="v0.1.4",
+    version="v0.1.5",
     author="Tim Fischer",
     author_email="t.fischer98@hotmail.com",
     description="A small package for simulating simple cellular automata.",
