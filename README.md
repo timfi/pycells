@@ -49,6 +49,7 @@ Options:
                                   neighborhood radius to use
   -o, --out FILE                  path to save the output to
   --initial-state INTEGER         initial simulation state
+  --skip-initial-state            skip the initial state
   --parallelize                   enabled parallel calculation of cells per
                                   state transition
   --scaling INTEGER               scaling to apply to output
