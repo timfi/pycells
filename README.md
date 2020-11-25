@@ -1,4 +1,4 @@
-# ![glider](https://media.githubusercontent.com/media/tim-fi/pycells/master/images/glider.gif) pyCells
+# ![glider](https://media.githubusercontent.com/media/timfi/pycells/master/images/glider.gif) pyCells
 
 Whilst being very bored recently I started playing around with simulating cellular automata once again.
 But to challenge myself a bit more than usual I set three specific limitations that made this a bit harder
@@ -81,4 +81,4 @@ graphical visualizations for 1D and 2D automata. If you want to create your own 
 you can specify one of the text based formats (e.g. `txt`, `npy`).
 
 ## Examples
-For some more examples have a look at rendered outputs [here](https://github.com/tim-fi/pycells/tree/master/images).
+For some more examples have a look at rendered outputs [here](https://github.com/timfi/pycells/tree/master/images).

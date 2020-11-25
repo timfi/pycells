@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pycells",
-    version="v0.1.6",
+    version="v0.1.7",
     author="Tim Fischer",
     author_email="t.fischer98@hotmail.com",
     description="A small package for simulating simple cellular automata.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/tim-fi/pycells",
+    url="https://github.com/timfi/pycells",
     packages=["pycells"],
     package_data={"pycells": ["presets/*.yml"]},
     classifiers=[
