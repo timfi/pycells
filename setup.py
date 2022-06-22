@@ -22,7 +22,7 @@ setuptools.setup(
     python_requires='>=3.7',
     install_requires=[
         "Click==7.0",
-        "numpy==1.18.1",
+        "numpy==1.22.0",
         "Pillow==7.0.0",
         "PyYAML==5.3",
     ]
